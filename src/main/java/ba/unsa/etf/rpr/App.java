@@ -16,14 +16,16 @@ public class App
         }
         return fakt;
     }
-    public static double sinus(int n){
-        double rad=n*1./180.*Math.PI;
-        double sin=rad;
+    public static double sinus(double n){
+        double rad=n*Math.PI/180;
+        double sin=0.0;
+        int j,fac;
         for(int i=1; i<=10; i++){
-            if(i%2==0)
-            sin+=Math.pow(rad,2*i+1)/faktorijel(2*i+1);
-            else
-                sin-=Math.pow(rad,2*i+1)/faktorijel(2*i+1);
+            fac=1;
+            for(j=2; j<=2*i+1; j++){
+                fac*=j;
+            }
+            sin+=Math.pow(-1.0,i)*Math.pow(rad,2*i+1)/fac;
         }
         return sin;
     }
